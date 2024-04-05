@@ -10,8 +10,6 @@ Purffect Pawsiters is a website dedicated to providing various services for pets
 
 - Browse through our services and book appointments easily.
 - Learn about our team of professionals dedicated to pet care.
-- Stay updated with the latest news and tips for pet care.
-- Join our community and share your love for animals.
 
 ## Deployment
 
@@ -36,7 +34,7 @@ To set up the project locally, follow these steps:
 3. Install dependencies:
 
 4. Start the development server:
-5. 
+   
 6. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the website locally.
 
 
