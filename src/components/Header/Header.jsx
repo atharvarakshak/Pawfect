@@ -1,97 +1,72 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
-import dogLogo from '../../assets/logoDog.svg'
+
 import Darkmode from '../DarkMood/DarkMode';
 
 
 
-export default function Header() {
-    return (
-        <header className="shadow-lg sticky z-50 top-0  shadow-slate-300 ">
-            <nav className=" dark:bg-slate-900 bg-orange-300   border-gray-200 lg:px-6 py-2.5 shad ">
-                <div className="flex flex-wrap justify-between items-center mx-auto ">
-                    <Link to="/" className="flex items-center">
-                        <img
-                            src={dogLogo}
-                            className=""
-                            alt="Logo"
-                        />
-                        <h1 className="md:text-4xl text-2xl font-extrabold text  dark:text-orange-300 text-white">Purrfect PawSitters</h1>
-                    </Link>
-                   
-                    <div className="flex items-center lg:order-2 gap-4">
+import { useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon,SunIcon } from '@heroicons/react/24/solid'
+// import {Link} from react-router-dom
+import logo from '../../assets/logoDog.svg'
+import { NavLink } from 'react-router-dom';
+const Nav = () => {
+  let Links = [
+    { name: "HOME", link: "/" },
+    { name: "SERVICES", link: "/" },
+    { name: "Help", link: "/help" },
+    { name: "ABOUT", link: "/about" },
+  ];
+  let [open, setOpen] = useState(false);
 
-                        <Link
-                            to="/"
-                            className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-7 py-2 lg:py-2.5 mr-2 focus:outline-none"
-                        >
-                            Login/Sign up
-                        </Link>
+  return (
+    <div className="navbar shadow-md w-full  fixed z-50 top-0 left-0  "> 
+      <div className="md:flex items-center justify-between bg-[#FFBB7A] py-4 md:px-10 px-7 ">
+        {/* Logo section */}
+        <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
+          <a href="/">
+            <img src={logo} alt="" />
+          </a>
+          <span className="text-white">Purrfect Pawsitters</span>
+        </div>
+        {/* Menu icon */}
+        <div
+          onClick={() => setOpen(!open)}
+          className="absolute right-8 top-10 cursor-pointer md:hidden w-7 h-7 "
+          style={{ zIndex: 100 }}
+        >
+          {open ? <XMarkIcon /> : <Bars3BottomRightIcon />}
+        </div>
+        {/* Link items */}
+        <ul
+          className={` md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#FFBB7A] md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-1000 ease-out ${
+            open ? "top-20 z-[-1]" : "top-[-490px]"
+          }`}
+          style={{ zIndex: 90 }}
+        >
+          {Links.map((link) => (
+            <li className="md:ml-8 md:my-0 my-7 font-semibold" key={link.name}>
+              <a
+                href={link.link}
+                className="text-white hover:text-blue-400 duration-500"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+          <NavLink to="/signup">
+          <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-1 rounded duration-300 md:static">
+            Login/SignUp
+          </button>
+          </NavLink>
+          <div>
+            <Darkmode/>
+          </div>
+        </ul>
+        
+      </div>
+    </div>
+  );
+};
 
-                         {/* theme changer button */}
-                     <div className=" ">
-                        <Darkmode/>
-                    </div>
-                    </div>
-                    
-                    
-                   
-                    
-                    <div
-                        className=" justify-between   items-end "
-                        id="mobile-menu-2"
-                    >
-                        <ul className=" flex  font-semibold md:flex-row space-x-8  items-center text-lg ">
-                            <li>
-                                <NavLink
-                                to="/"
-                                    className={({isActive}) =>
-                                    `block py-2 pr-4 pl-3 duration-200 border-b ${isActive ? "text-orange-700 underline   " :"text-white"} border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                to="/service"
-                                    className={({isActive}) =>
-                                    `block py-2 pr-4 pl-3 duration-200 border-b ${isActive ? "text-orange-700  underline  " :"text-white"} border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Services
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                to="/help"
-                                    className={({isActive}) =>
-                                    `block py-2 pr-4 pl-3 duration-200 border-b ${isActive ? "text-orange-700  underline " :"text-white"} border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Help
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                to="/about"
-                                    className={({isActive}) =>
-                                    `block py-2 pr-4 pl-3 duration-200 border-b ${isActive ? "text-orange-700  underline " :"text-white"} border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                            </li>
-                            
-                            
-                        </ul>
-                    </div> 
-                     
-                     
-
-                    
-                </div>
-            </nav>
-        </header>
-    );
-}
+export default Nav;
