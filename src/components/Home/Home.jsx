@@ -19,7 +19,7 @@ export default function Home() {
 
         
         <div className="  ">
-        <img src={homeImg} alt="" className=" w-screen " />
+        
         <HomeCard/>
         <div className="flex space-y-24 flex-col">
         <LeftImg img={dayCare2} title="Day Care" content="Where furry friends feel at home: Find your perfect pet caretaker today! " linked="/daycare"/>
