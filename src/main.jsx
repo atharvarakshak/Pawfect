@@ -14,12 +14,9 @@ import Grooming from './components/subpages/Grooming.jsx'
 import VeterinaryAssistance from './components/subpages/VeterinaryAssistance.jsx'
 import PetTraining from './components/subpages/PetTraining.jsx'
 import Walking from './components/subpages/Walking.jsx'
-<<<<<<< HEAD
 import Book from './components/Booking/Book.jsx'
-=======
 import Signup from './components/login/signup/Signup.jsx'
 import Login from './components/login/signup/Login.jsx'
->>>>>>> 763fc8f9f16b41735312ead54c81a781f88fefef
 
 
 
@@ -36,12 +33,9 @@ const router = createBrowserRouter(
      <Route path='veterinary-assistance' element={<VeterinaryAssistance/>} />
      <Route path='pettraining' element={<PetTraining/>} />
      <Route path='walking' element={<Walking/>} />
-<<<<<<< HEAD
      <Route path='booking' element={<Book/>} />
-=======
      <Route path='signup' element={<Signup/>} />
      <Route path='login' element={<Login/>} />
->>>>>>> 763fc8f9f16b41735312ead54c81a781f88fefef
     
     </Route>
   )
