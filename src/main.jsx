@@ -14,6 +14,8 @@ import Grooming from './components/subpages/Grooming.jsx'
 import VeterinaryAssistance from './components/subpages/VeterinaryAssistance.jsx'
 import PetTraining from './components/subpages/PetTraining.jsx'
 import Walking from './components/subpages/Walking.jsx'
+import Signup from './components/login/signup/Signup.jsx'
+import Login from './components/login/signup/Login.jsx'
 
 
 
@@ -30,6 +32,8 @@ const router = createBrowserRouter(
      <Route path='veterinary-assistance' element={<VeterinaryAssistance/>} />
      <Route path='pettraining' element={<PetTraining/>} />
      <Route path='walking' element={<Walking/>} />
+     <Route path='signup' element={<Signup/>} />
+     <Route path='login' element={<Login/>} />
     
     </Route>
   )
