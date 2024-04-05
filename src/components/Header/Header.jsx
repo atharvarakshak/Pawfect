@@ -5,8 +5,10 @@ import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon,SunIcon } from '@heroicons/react/24/solid'
 // import {Link} from react-router-dom
+
 import logo from '../../assets/logoDog.svg'
 import { NavLink } from 'react-router-dom';
+
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
