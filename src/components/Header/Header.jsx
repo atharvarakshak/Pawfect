@@ -1,9 +1,6 @@
 import React from 'react'
 
-import Darkmode from '../DarkMood/DarkMode';
-
-
-
+import Darkmode from '../DarkMood/DarkMode.jsx';
 import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon,SunIcon } from '@heroicons/react/24/solid'
@@ -21,7 +18,7 @@ const Nav = () => {
 
   return (
     <div className="navbar shadow-md w-full  fixed z-50 top-0 left-0  "> 
-      <div className="md:flex items-center justify-between bg-[#FFBB7A] py-4 md:px-10 px-7 ">
+      <div className="md:flex items-center justify-between bg-[#FFBB7A] dark:bg-slate-900 py-4 md:px-10 px-7 ">
         {/* Logo section */}
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
           <a href="/">
@@ -39,7 +36,7 @@ const Nav = () => {
         </div>
         {/* Link items */}
         <ul
-          className={` md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#FFBB7A] md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-1000 ease-out ${
+          className={` md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#FFBB7A] dark:bg-slate-900 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-0 ease-out ${
             open ? "top-20 z-[-1]" : "top-[-490px]"
           }`}
           style={{ zIndex: 90 }}
@@ -59,7 +56,7 @@ const Nav = () => {
             Login/SignUp
           </button>
           </NavLink>
-          <div>
+          <div className='ml-2'>
             <Darkmode/>
           </div>
         </ul>
