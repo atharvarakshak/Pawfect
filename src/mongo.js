@@ -1,7 +1,7 @@
 
 
 import { connect, Schema, model } from "mongoose";
-connect("mongodb://localhost:27017/akm")
+connect("mongodb://localhost:27017/purrfectPawsitters")
 .then(()=>{
     console.log("mongodb connected");
 })
