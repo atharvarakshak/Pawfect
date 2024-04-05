@@ -6,7 +6,7 @@ import vaterinaryAssistance from '../../assets/VeterinaryAssistance2.svg'
 function VeterinaryAssistance() {
   return (
     <div>
-      <LeftImg img={vaterinaryAssistance} title="vaterinary Assistance" content="In a veterinary assistant service for pets, we offer support with basic medical procedures, administer medications, assist in examinations, and provide post-operative care. Ensure a calm and comforting environment, maintain records, and facilitate communication between veterinarians and pet owners. " linked="/veterinary-assistance"/>
+      <LeftImg img={vaterinaryAssistance} title="vaterinary Assistance" content="In a veterinary assistant service for pets, we offer support with basic medical procedures, administer medications, assist in examinations, and provide post-operative care. Ensure a calm and comforting environment, maintain records, and facilitate communication between veterinarians and pet owners. " linked="/veterinary-assistance" btnText="Book Now"/>
     </div>
   )
 }

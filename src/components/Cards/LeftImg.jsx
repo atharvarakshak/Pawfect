@@ -3,7 +3,7 @@ import {Link, NavLink} from 'react-router-dom'
 
 import ll from '../../assets/squares.svg'
 
-function LeftImg({img,title,content,linked}) {
+function LeftImg({img,title,content,linked,btnText}) {
   return (
     <div className='mt-12'>
         <div className="flex justify-center items-center max max-w-screen-lg m-auto gap-32 sm:flex-row  flex-col-reverse dark:text-slate-100">
@@ -19,7 +19,7 @@ function LeftImg({img,title,content,linked}) {
                 <a href="#_" class="mx-auto  max-w-[126px]  realtive flex px-4 py-2 font-medium group bg-black dark:bg-orange-300 rounded-lg">
                 
                   <NavLink to={linked}>
-                  <span class="relative  text-white  dark:text-slate-100">Enquire now</span>
+                  <span class="relative  text-white  dark:text-slate-100">{btnText}</span>
                   </NavLink>
                   </a>
             </div>
