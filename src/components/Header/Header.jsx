@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Darkmode from '../DarkMood/DarkMode.jsx';
+import Darkmode from '../DarkMood/Darkmode';
+
 import { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon,SunIcon } from '@heroicons/react/24/solid'
