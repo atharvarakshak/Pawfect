@@ -14,6 +14,7 @@ import Grooming from './components/subpages/Grooming.jsx'
 import VeterinaryAssistance from './components/subpages/VeterinaryAssistance.jsx'
 import PetTraining from './components/subpages/PetTraining.jsx'
 import Walking from './components/subpages/Walking.jsx'
+import Book from './components/Booking/Book.jsx'
 
 
 
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
      <Route path='veterinary-assistance' element={<VeterinaryAssistance/>} />
      <Route path='pettraining' element={<PetTraining/>} />
      <Route path='walking' element={<Walking/>} />
+     <Route path='booking' element={<Book/>} />
     
     </Route>
   )
