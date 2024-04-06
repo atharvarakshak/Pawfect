@@ -15,12 +15,15 @@ app.get("/",cors(),(req,res)=>{
 
 
 app.post("/",async(req,res)=>{
-    const{email,password}=req.body
+    const{email,password, isLoggedIn}=req.body
 
     try{
         const check=await collection.findOne({email:email})
+        if(isLoggedIn){
 
-        if(check){
+            res.json("loggedin")
+        }
+        if(check ){
             res.json("exist")
         }
         else{
@@ -37,16 +40,20 @@ app.post("/",async(req,res)=>{
 
 
 app.post("/signup",async(req,res)=>{
-    const{email,password}=req.body
+    const{email,password,isLoggedIn}=req.body
 
     const data={
         email:email,
-        password:password
+        password:password,
+        isLoggedIn:isLoggedIn
     }
 
     try{
         const check=await collection.findOne({email:email})
+        if(isLoggedIn){
 
+            res.json("loggedin")
+        }
         if(check){
             res.json("exist")
         }
@@ -66,12 +73,16 @@ app.post("/signup",async(req,res)=>{
 
     const data={
         email:email,
-        password:password
+        password:password,
+        isLoggedIn:isLoggedIn
     }
 
     try{
         const check=await collection.findOne({email:email})
+        if(isLoggedIn){
 
+            res.json("loggedin")
+        }
         if(check){
             res.json("exist")
         }
