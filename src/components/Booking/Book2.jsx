@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './PaymentOptions.css';
 import logo from "../../assets/qr.jpg"
-import './PaymentOption.js';
 const Book = () => {
   const [services, setServices] = useState([
     { name: 'Day Care', price: 599, checked: false },
