@@ -25,9 +25,9 @@ const Nav = () => {
         {/* Logo section */}
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
           <a href="/">
-            <img src={logo} alt="" />
+            <img className='' src={logo} alt="" />
           </a>
-          <span className="text-white">Purrfect Pawsitters</span>
+          <span className="text-white ">    Pawfect</span>
         </div>
         {/* Menu icon */}
         <div
