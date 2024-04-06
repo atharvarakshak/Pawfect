@@ -8,7 +8,6 @@ const Book = () => {
   const [addr, setAddr] = useState('');
   const [phone, setPhone] = useState('');
   const [service, setService] = useState('');
-<<<<<<< HEAD
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const submit = async (e) => {
     e.preventDefault();
@@ -19,18 +18,14 @@ const Book = () => {
       }
      
       
-=======
-
-  const submit = async (e) => {
-    e.preventDefault();
-    try {
->>>>>>> 32d9a3864bfe371791bd928c0cedc03dfd98a8b3
       const response = await axios.post("http://localhost:3001/", {
         email,
         password
       });
+      
       if (response.data === "exist") {
-        history("/", { state: { id: email } });
+        alert("Your order is placed successfully!");
+        history("/", { state: { id: service } });
       } else if (response.data === "notexist") {
         alert("User has not signed up");
       }
@@ -42,13 +37,6 @@ const Book = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> dfada45bd9fa47d3671538dd74ed3cadece7725f
->>>>>>> 32d9a3864bfe371791bd928c0cedc03dfd98a8b3
->>>>>>> 691a9eeafda3526777ee83e65115913f3636ed55
       
         <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
            <p className="text-center font-bold text-3xl ">Book an appointment !</p>
@@ -74,13 +62,8 @@ const Book = () => {
           <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
           <span class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
           </span>
-<<<<<<< HEAD
           <span class="absolute bottom-0 text-center  h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
           <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white flex justify-center">Book</span>
-=======
-          <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Button Text</span>
->>>>>>> 32d9a3864bfe371791bd928c0cedc03dfd98a8b3
           </a>
           </form>
       </div>
