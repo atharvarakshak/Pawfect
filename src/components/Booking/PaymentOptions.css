@@ -1,0 +1,97 @@
+.payment {
+    padding: 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: 440px;
+    margin: 50vh 50vw;
+    border-radius: 30px ;
+    background: #f6c3aa;
+    z-index: 1001;
+  }
+  
+.box{
+background-color: #ffffff;}
+
+  .payment .option1,
+  .payment .option2 {
+    flex: 1;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 20px; 
+  }
+  
+  .payment .option1 .name,
+  .payment .option2 .name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .payment .option1 .box,
+  .payment .option2 .box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    margin-right: 10px;
+  }
+  
+  .payment .option1 .qr,
+  .payment .option2 .qr {
+    margin-top: 10px;
+  }
+  
+  .payment .option1 img,
+  .payment .option2 img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .payment .option p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .box {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  /* Styles for the button in the green state */
+  .box.green {
+    background-color: green;
+    color: white;
+  }
+
+  /* Tick mark for the button in the green state */
+  .box.green::after {
+    content: '\2714'; /* Unicode character for checkmark */
+    margin-left: 5px;
+  }
+
+form{
+  z-index: 2;
+}
+
+.big{
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1000;
+}
+
+.payment-overlay.visible {
+  display: block;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import './PaymentOptions.css';
+import logo from "../../assets/qr.jpg"
+import './PaymentOption.js';
 const Book = () => {
   const [services, setServices] = useState([
     { name: 'Day Care', price: 599, checked: false },
@@ -10,6 +12,7 @@ const Book = () => {
     { name: 'Breeding Assistance', price: 699, checked: false }
   ]);
   const [totalCost, setTotalCost] = useState(0);
+  const [showPaymentOverlay, setShowPaymentOverlay] = useState(false);
 
   const handleCheckboxChange = (index) => {
     const updatedServices = [...services];
@@ -30,31 +33,35 @@ const Book = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    // Your form submission logic here
+    setShowPaymentOverlay(true);
     console.log('Form submitted...');
   };
 
   return (
     
     <div>
+      <div id="popup" className={`payment-overlay ${showPaymentOverlay ? 'visible' : ''}`}>
       <div className="payment">
+      <p className="text-center font-bold text-3xl ">Choose Payment Option</p>
         <div className="option1">
           <div className="name">
-            <div className="box"></div>
-            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+            <button id="toggleButton" className="box"></button>
+            <div className="option">Option 1 - PayTm / PhonePay / G-Pay</div>
           </div>
           <div className="qr">
-            <img src="../../assets/qr.jpg" alt="" />
+            <img src={logo} alt="" />
           </div>
         </div>
         <div className="option2">
         <div className="name">
-            <div className="box"></div>
-            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+            <button id="toggleButton" className="box"></button>
+            <p className="option">Option 2 - Pay After Service (PAS)</p>
           </div>
+          <div className="buttons"></div>
         </div>
       </div>
-      <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px]  m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
+      </div>
+      <form className="form bg-[#fccea4] flex flex-col gap-9 lg:w-[578px]  m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
         <p className="text-center font-bold text-3xl ">Book an appointment !</p>
         <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Address'/>
