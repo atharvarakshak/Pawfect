@@ -5,7 +5,7 @@ import ll from '../../assets/squares.svg'
 
 function LeftImg({img,title,content,linked,btnText}) {
   return (
-    <div className='mt-12'>
+    <div className='mt-32'>
         <div className="flex justify-center items-center max max-w-screen-lg m-auto gap-32 sm:flex-row  flex-col-reverse dark:text-slate-100">
             {/* left */}
             <div className="">

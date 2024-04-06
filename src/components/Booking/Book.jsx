@@ -30,7 +30,7 @@ const Book = () => {
   };
 
   return (
-    <div>
+    <div className='relative top-16 mb-24'>
       
         <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
            <p className="text-center font-bold text-3xl ">Book an appointment !</p>

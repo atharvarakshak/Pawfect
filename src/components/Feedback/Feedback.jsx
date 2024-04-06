@@ -3,12 +3,11 @@ import React from 'react'
 const Feedback = () => {
   return (
    
-    <div>
+    <div className='relative top-16'>
       
       <p className="">Tell Us what you feel</p>
 
       <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" >
-           <p className="text-center font-bold text-3xl ">Book an appointment !</p>
            <input type="full Name" className=" p-2 rounded-lg" placeholder='Your email'/>
            
            <select className="p-2 rounded-lg"  >
