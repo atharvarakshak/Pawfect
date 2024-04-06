@@ -5,7 +5,10 @@ import petTraining from '../../assets/PetTraining2.svg'
 
 function PetTraining() {
   return (
+    <div  className='relative top-16' >
+    
     <RightImg img={petTraining} title="Pet Training" content=" Provide basic obedience training, behavior modification, and socialization for pets. Customize programs, use positive reinforcement, address behavior issues, and educate owners for a well-behaved pet." linked="/booking" btnText="Book Now"/>
+    </div>
   )
 }
 
