@@ -31,23 +31,6 @@ const Book = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
-        <p className="text-center font-bold text-3xl">Book an appointment!</p>
-        <input type="text" className="p-2 rounded-lg" placeholder='Full Name' onChange={(e) => setName(e.target.value)} />
-        <input type="text" className="p-2 rounded-lg" placeholder='Address' onChange={(e) => setAddr(e.target.value)} />
-        <input type="text" className="p-2 rounded-lg" placeholder='Phone No.' onChange={(e) => setPhone(e.target.value)} />
-       
-        <div className="text-xl flex mx-5 justify-between">
-          <p>Estimated Cost:</p>
-          <p>Rs:</p>
-        </div>
-        <button type="submit" className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-xl">
-          Book Now
-        </button>
-      </form>
-    </div>
-=======
       
         <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
            <p className="text-center font-bold text-3xl ">Book an appointment !</p>
@@ -78,7 +61,6 @@ const Book = () => {
           </a>
           </form>
       </div>
->>>>>>> 222eeb54ac5099d5635ee565774a8145330c228c
   )
 }
 
