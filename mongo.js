@@ -11,16 +11,21 @@ connect(url)
 .catch(()=>{
     console.log('failed');
 })
-const newSchema=new Schema({
-    email:{
-        type:String,
-        required:true
+const newSchema = new Schema({
+    email: {
+        type: String,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
+    },
+    isLoggedIn: {
+        type: Boolean,
+        default: false 
     }
-})
+});
+
 
 const collection = model("addusers",newSchema)
 
