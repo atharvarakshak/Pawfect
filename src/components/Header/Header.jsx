@@ -34,7 +34,7 @@ const Nav = () => {
 
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "SERVICES", link: "/" },
+    { name: "CART", link: "/cart" },
     { name: "HELP", link: "/help" },
     { name: "ABOUT", link: "/about" },
     { name: "FEEDBACK", link: "/feedback" },

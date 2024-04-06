@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Help from './components/Help/Help.jsx'
-import Service from './components/Service/Service.jsx'
 import Home from './components/Home/Home.jsx'
 import About from './components/About/About.jsx'
 import Layout from './Layout.jsx'
@@ -18,6 +17,7 @@ import Book from './components/Booking/Book2.jsx'
 import Signup from './components/login/signup/Signup.jsx'
 import Login from './components/login/signup/Login.jsx'
 import Feedback from './components/feedback/Feedback.jsx'
+import Booked from './components/Booking/Booked.jsx'
 
 
 
@@ -27,7 +27,6 @@ const router = createBrowserRouter(
      <Route path='' element={<Home/>} />
      <Route path='about' element={<About/>} />
      <Route path='help' element={<Help/>} />
-     <Route path='service' element={<Service/>} />
      <Route path='daycare' element={<Daycare/>} />
      <Route path='breeding-assistance' element={<BreedingAssistance/>} />
      <Route path='grooming' element={<Grooming/>} />
@@ -38,6 +37,7 @@ const router = createBrowserRouter(
      <Route path='signup' element={<Signup/>} />
      <Route path='login' element={<Login/>} />
      <Route path='feedback' element={<Feedback/>} />
+     <Route path='cart' element={<Booked/>} />
     
     
     </Route>
