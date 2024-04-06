@@ -36,7 +36,15 @@ const Book = () => {
            <input type="full Name" className=" p-2 rounded-lg" placeholder='Full Name'/>
            <input type="full Name" className="p-2 rounded-lg" placeholder='Address'/>
            <input type="full Name" className="p-2 rounded-lg" placeholder='Phone No.'/>
-           <input type="full Name" className="p-2 rounded-lg" placeholder='selected service'/>
+           <select className="p-2 rounded-lg" value={service} onChange={(e) => setService(e.target.value)}>
+          <option value="">Select a service</option>
+          <option value="Day Care">Day Care</option>
+          <option value="Grooming">Grooming</option>
+          <option value="Pet Training">Pet Training</option>
+          <option value="Veterinary Assistance">Veterinary Assistance</option>
+          <option value="Walking">Walking</option>
+          <option value="Breeding Assistance">Breeding Assistance</option>
+        </select>
 
            <div className="text-xl flex mx-5 justify-between">
             <p className="">Estimated Cost:</p>
