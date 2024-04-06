@@ -20,7 +20,7 @@ const Feedback = () => {
           <option value="Breeding Assistance">Breeding Assistance</option>
           </select>
           
-          <textarea name="" id="" cols="30" rows="10" placeholder='Give Us your valuable Feedback !'></textarea>
+          <textarea name="" id="" cols="30" rows="10" className='p-2'  placeholder='Give Us your valuable Feedback !'></textarea>
 
 
            <a href="#_" class="relative inline-flex items-center  text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl group">
