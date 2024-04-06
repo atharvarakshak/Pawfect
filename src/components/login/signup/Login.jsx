@@ -7,8 +7,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track user login status
-
   const submit = async (e) => {
     e.preventDefault();
     try {
@@ -17,7 +15,6 @@ const Login = () => {
         password
       });
       if (response.data === "exist") {
-        isLoggedIn =true;
         history("/", { state: { id: email } });
       } else if (response.data === "notexist") {
         alert("User has not signed up");

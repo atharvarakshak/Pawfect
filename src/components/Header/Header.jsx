@@ -11,6 +11,27 @@ import logo from '../../assets/logoDog.svg'
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
+  const [isLoggedIn,setIsLoggedIn]=useState(false);
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3001/login', {
+        email,
+        password,
+      });
+      if (response.data === 'Logged in successfully.') {
+        setIsLoggedIn(true);
+        history('/', { state: { id: email } });
+      } else if (response.data === 'User not found.') {
+        alert('User not found. Please sign up.');
+      }
+    } catch (error) {
+      alert('Wrong details');
+      console.error(error);
+    }
+  };
+  
+
   let Links = [
     { name: "HOME", link: "/" },
     { name: "SERVICES", link: "/" },
@@ -59,7 +80,21 @@ const Nav = () => {
          <div className="flex md:flex-row flex-col gap-3">
          <NavLink to="/signup">
           <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
-            SignUp
+          {!isLoggedIn ? (
+          <NavLink to="/signup">
+            <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
+              SignUp
+            </button>
+          </NavLink>
+          ) : (
+            <button
+              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static"
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Logout
+            </button>
+          )}
+
           </button>
           </NavLink>
           <div className='ml-2'>
