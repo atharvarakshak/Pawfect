@@ -1,41 +1,16 @@
 import React from 'react'
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
 
-
-
-const Book = () => {
-  const history = useNavigate();
-  const [name, setName] = useState('');
-  const [addr, setAddr] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const submit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:3001/", {
-        email,
-        password
-      });
-      if (response.data === "exist") {
-        history("/", { state: { id: email } });
-      } else if (response.data === "notexist") {
-        alert("User has not signed up");
-      }
-    } catch (error) {
-      alert("Wrong details");
-      console.error(error);
-    }
-  };
+const Feedback = () => {
   return (
+   
     <div>
       
-        <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
+      <p className="">Tell Us what you feel</p>
+
+      <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
            <p className="text-center font-bold text-3xl ">Book an appointment !</p>
-           <input type="full Name" className=" p-2 rounded-lg" placeholder='Full Name'/>
-           <input type="full Name" className="p-2 rounded-lg" placeholder='Address'/>
-           <input type="full Name" className="p-2 rounded-lg" placeholder='Phone No.'/>
+           <input type="full Name" className=" p-2 rounded-lg" placeholder='Your email'/>
+           
            <input type="full Name" className="p-2 rounded-lg" placeholder='selected service'/>
 
            <div className="text-xl flex mx-5 justify-between">
@@ -51,8 +26,10 @@ const Book = () => {
           <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Button Text</span>
           </a>
           </form>
-      </div>
+     
+   </div>
+
   )
 }
 
-export default Book
+export default Feedback
