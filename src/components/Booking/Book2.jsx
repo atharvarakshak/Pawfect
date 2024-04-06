@@ -35,11 +35,35 @@ const Book = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className='relative top-16'>
 
 
       <form className="bg-[#fccea4] dark:bg-slate-600 flex flex-col gap-9 lg:w-[578px]  lg:m-auto rounded-2xl p-10  mx-3 border border-3 dark:border-slate-500" onSubmit={submit}>
         <p className="text-center font-bold md:text-3xl text-xl ">Book an appointment !</p>
+=======
+    
+    <div>
+      <div className="payment">
+        <div className="option1">
+          <div className="name">
+            <div className="box"></div>
+            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+          </div>
+          <div className="qr">
+            <img src="../../assets/qr.jpg" alt="" />
+          </div>
+        </div>
+        <div className="option2">
+        <div className="name">
+            <div className="box"></div>
+            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+          </div>
+        </div>
+      </div>
+      <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px]  m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
+        <p className="text-center font-bold text-3xl ">Book an appointment !</p>
+>>>>>>> 2f7246b593d9b9ba5f00e593bc72e87cd6279fb3
         <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Address'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Phone No.'/>
