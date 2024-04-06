@@ -66,28 +66,29 @@ const Book = () => {
         <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Address'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Phone No.'/>
-
+        <p className="text-center font-bold md:text-xl text-md ">Select Services </p>
         {services.map((service, index) => (
         
-          <div key={index} onChange={() => handleCheckboxChange(index)} className='bg-red-900/50 p-2 text-white'>
+          <div key={index} onChange={() => handleCheckboxChange(index)} className='bg-red-900/50 p-2 text-white flex justify-left items-center gap-5'>
             <input
               type="checkbox"
               name={service.name}
               checked={service.checked}
-              className='w-8'
+              className='w-6 h-6'
             />
             
             <label>{service.name} - Rs: {service.price}</label>
           </div>
         ))}
         <div className="text-xl flex mx-5 justify-between">
-          <p className="">Estimated Cost:</p>
-          <p className="">Rs: {totalCost}</p>
+          <p className="   px-4 py-2 font-medium group bg-blue-900  rounded-lg text-white text-md md:text-xl">Estimated Cost:</p>
+          <p className="  max-w-[126px]  px-4 py-2 font-medium group bg-black  rounded-lg text-white">Rs: {totalCost}</p>
         </div>
-        <button type="submit" className="relative inline-flex items-center text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl group">
-          <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Book Service</span>
+        <button type="submit" className="relative inline-flex items-center text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl  dark:bg-red-950 duration-700">
+          <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white text-xl">Book Service</span>
         </button>
       </form>
+      
     </div>
   );
 };
