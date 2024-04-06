@@ -17,7 +17,7 @@ import Walking from './components/subpages/Walking.jsx'
 import Book from './components/Booking/Book.jsx'
 import Signup from './components/login/signup/Signup.jsx'
 import Login from './components/login/signup/Login.jsx'
-
+import Feedback from './components/feedback/Feedback.jsx'
 
 
 const router = createBrowserRouter(
@@ -36,6 +36,8 @@ const router = createBrowserRouter(
      <Route path='booking' element={<Book/>} />
      <Route path='signup' element={<Signup/>} />
      <Route path='login' element={<Login/>} />
+     <Route path='feedback' element={<Feedback/>} />
+    
     
     </Route>
   )
