@@ -24,6 +24,7 @@ const newSchema=new Schema({
     }
 })
 
+
 const collection = model("addusers",newSchema)
 
 export default collection

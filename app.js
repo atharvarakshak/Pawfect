@@ -1,5 +1,5 @@
 import express from "express";
-
+import bcrypt from "bcrypt";
 import collection from "./mongo.js"
 import cors from"cors"
 const app = express()
@@ -37,20 +37,22 @@ app.post("/",async(req,res)=>{
 
 app.post("/signup",async(req,res)=>{
     const{email,password}=req.body
-
-    const data={
-        email:email,
-        password:password
-    }
-
+  
+    
     try{
         const check=await collection.findOne({email:email})
-
+        
         if(check){
             res.json("exist")
         }
         else{
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const data={
+                email:email,
+                password:hashedPassword
+            }
             res.json("notexist")
+            
             await collection.insertMany([data])
         }
 
