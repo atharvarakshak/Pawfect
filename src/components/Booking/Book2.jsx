@@ -35,7 +35,25 @@ const Book = () => {
   };
 
   return (
+    
     <div>
+      <div className="payment">
+        <div className="option1">
+          <div className="name">
+            <div className="box"></div>
+            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+          </div>
+          <div className="qr">
+            <img src="../../assets/qr.jpg" alt="" />
+          </div>
+        </div>
+        <div className="option2">
+        <div className="name">
+            <div className="box"></div>
+            <p className="option">Option 1 - PayTm / PhonePay / G-Pay</p>
+          </div>
+        </div>
+      </div>
       <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px]  m-auto rounded-2xl p-10 mt-32" onSubmit={submit}>
         <p className="text-center font-bold text-3xl ">Book an appointment !</p>
         <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/>
