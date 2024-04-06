@@ -10,7 +10,7 @@ const Login = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/", {
+      const response = await axios.post("http://localhost:3001/", {
         email,
         password
       });

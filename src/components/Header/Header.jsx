@@ -58,7 +58,7 @@ const Nav = () => {
          <div className="flex md:flex-row flex-col gap-3">
          <NavLink to="/signup">
           <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
-            Login/SignUp
+            SignUp
           </button>
           </NavLink>
           <div className='ml-2'>
