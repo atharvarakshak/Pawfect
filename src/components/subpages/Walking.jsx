@@ -7,7 +7,7 @@ function Walking() {
   return (
     <div>
     <RightImg img={walking} title="Walking" content=" We provide regular and on-demand dog walks, tailored to the pet's needs. 
-So stay free from the stress to ensure proper walk for your pet dog." linked="/walking" btnText="Book Now"/>
+So stay free from the stress to ensure proper walk for your pet dog." linked="/booking" btnText="Book Now"/>
   </div>
   )
 }
