@@ -17,7 +17,7 @@ import Book from './components/Booking/Book2.jsx'
 import Signup from './components/login/signup/Signup.jsx'
 import Login from './components/login/signup/Login.jsx'
 import Feedback from './components/feedback/Feedback.jsx'
-import Booked from './components/Booking/Booked.jsx'
+
 
 
 
@@ -37,7 +37,7 @@ const router = createBrowserRouter(
      <Route path='signup' element={<Signup/>} />
      <Route path='login' element={<Login/>} />
      <Route path='feedback' element={<Feedback/>} />
-     <Route path='cart' element={<Booked/>} />
+    
     
     
     </Route>
