@@ -66,25 +66,6 @@ app.post("/signup",async(req,res)=>{
     }
 
 })
-app.post('/feedback', async (req, res) => {
-    
-    const { name, service, message } = req.body;
-    try {
-        const data1={
-            name:name,
-            service:service,
-            message:message
-
-        }
-   
-      await feedback.insertMany([data1])
-      res.json('done' );
-    } 
-    catch (error) {
-      console.error('Error submitting feedback:', error);
-      res.json({ error: 'Internal server error' });
-    }
-  });
 
 app.listen(3001,()=>{
     console.log("port connected");
