@@ -37,6 +37,24 @@ To set up the project locally, follow these steps:
    
 6. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the website locally.
 
+   
+# Authors
+
+- Kamalnath Dhekwar - [kamalnathdhekwar](https://github.com/kamalnathdhekwar)
+- Atharva Rakshak - [atharvarakshak](https://github.com/atharvarakshak)
+- Meharsh Chandure - [meharsh7804]()
+- Ansh Agrawal - [ans634]()
+
+# Efforts towards Digital Anonymity
+
+## Password Encryption
+
+Implemented encryption for saving passwords in the backend. By hashing passwords, we ensure that even if the database is compromised, the passwords remain anonymous. Only the users themselves know their passwords.
+
+## Feedback Name Anonymity
+
+Implemented user anonymity for feedback messages, enhancing trust by not displaying users' names alongside their messages.
+
 
 
 
