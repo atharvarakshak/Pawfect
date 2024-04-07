@@ -16,7 +16,7 @@ import Walking from './components/subpages/Walking.jsx'
 import Book from './components/Booking/Book2.jsx'
 import Signup from './components/login/signup/Signup.jsx'
 import Login from './components/login/signup/Login.jsx'
-import Feedback from './components/feedback/Feedback.jsx'
+import Feedback from './components/Feedback/Feedback.jsx'
 
 
 
