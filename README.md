@@ -1,10 +1,10 @@
-# Purffect Pawsiters
+# Pawfect
 
-Welcome to Purffect Pawsiters, your one-stop destination for all things related to pet services! This website was created as part of the HackByte 2.0 hackathon.
+Welcome to Pawfect, your one-stop destination for all things related to pet services! This website was created as part of the HackByte 2.0 hackathon.
 
 ## About
 
-Purffect Pawsiters is a website dedicated to providing various services for pets, including grooming, walking, breeding, and more. Whether you're a pet owner looking for professional services or someone passionate about animals, this platform is designed to cater to your needs.
+Pawfect is a website dedicated to providing various services for pets, including grooming, walking, breeding, and more. Whether you're a pet owner looking for professional services or someone passionate about animals, this platform is designed to cater to your needs.
 
 ## Features
 
@@ -13,7 +13,7 @@ Purffect Pawsiters is a website dedicated to providing various services for pets
 
 ## Deployment
 
-The Purffect Pawsiters website is deployed and accessible online. You can visit the website at [https://purfectpawsiters.netlify.app/](https://purfectpawsiters.netlify.app/).
+The Pawfect website is deployed and accessible online. You can visit the website at [link](https://youtu.be/2QIZSLnXioA).
 
 ## Technologies Used
 
@@ -42,8 +42,8 @@ To set up the project locally, follow these steps:
 
 - Kamalnath Dhekwar - [kamalnathdhekwar](https://github.com/kamalnathdhekwar)
 - Atharva Rakshak - [atharvarakshak](https://github.com/atharvarakshak)
-- Meharsh Chandure - [meharsh7804]()
-- Ansh Agrawal - [ans634]()
+- Meharsh Chandure - [meharsh7804](https://github.com/meharsh7804)
+- Ansh Agrawal - [ansh634](https://github.com/ansh634)
 
 # Efforts towards Digital Anonymity
 
