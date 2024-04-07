@@ -10,7 +10,7 @@ import instagram from '../../assets/instagram.svg'
 
 export default function Footer() {
     return (
-        <footer className="bg-orange-300 border-y dark:bg-slate-900 bottom-0 mt-16">
+        <footer className="bg-orange-300 border-y dark:bg-slate-900 bottom-0 mt-24">
             <div className="mx-auto w-full  p-4 py-6 lg:py-8 text-white dark:text-slate-300">
                 <div className="md:flex md:justify-between mx-5">
                     <div className="mb-6 md:mb-0 ">
