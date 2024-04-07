@@ -60,7 +60,7 @@ const Book = () => {
       <p className="text-center font-bold text-3xl ">Choose Payment Option</p>
         <div className="option1">
           <div className="name">
-            <div id="toggleButton" className="box"></div>
+            <button id="toggleButton" className="box"></button>
             <div className="option">Option 1 - PayTm / PhonePay / G-Pay</div>
           </div>
           <div className="qr">
@@ -72,11 +72,12 @@ const Book = () => {
             <div id="toggleButton" className="box"></div>
             <p className="option">Option 2 - Pay After Service (PAS)</p>
         </div>
+        <div className="name">
+            <button id="toggleButton" className="box"></button>
+            <p className="option">Option 2 - Pay After Service (PAS)</p>
+          </div>
+          <div className="buttons"></div>
         </div>
-        <div className='buttons'>
-              <button onClick={handleContinue} className='button bg-green-400'>Continue</button>
-              <button onClick={handleCancel} className='button bg-red-400'>Cancel</button>
-            </div>
       </div>
       </div>
       
@@ -106,7 +107,7 @@ const Book = () => {
         <button type="submit" className="relative inline-flex items-center text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl  dark:bg-red-950 duration-700">
           <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white text-xl">Book Service</span>
         </button>
-      </form>    
+      </form>
     </div>
   );
 };

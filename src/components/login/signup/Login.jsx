@@ -17,7 +17,10 @@ const Login = () => {
       if (response.data === "exist") {
         history("/", { state: { id: email } });
       } else if (response.data === "notexist") {
-        alert("User has not signed up");
+        alert("User has not signed up");  
+      }
+      else{
+        alert("Invalid password");
       }
     } catch (error) {
       alert("Wrong details");
