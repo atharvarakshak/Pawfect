@@ -12,21 +12,19 @@ const Feedback = () => {
       <p className="">Tell Us what you feel</p>
       <form
         className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32"
-        onSubmit={handleSubmit}
+        
       >
         <input
           type="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          
           className="p-2 rounded-lg"
           placeholder="Your Email"
           required
         />
         <select
           name="service"
-          value={formData.service}
-          onChange={handleChange}
+      
           className="p-2 rounded-lg"
           required
         >
@@ -40,8 +38,7 @@ const Feedback = () => {
         </select>
         <textarea
           name="message"
-          value={formData.message}
-          onChange={handleChange}
+          
           className="p-2 rounded-lg"
           placeholder="Give Us your valuable Feedback !"
           required
@@ -51,17 +48,8 @@ const Feedback = () => {
         </button>
       </form>
 
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">Previous Feedbacks</h2>
-        <ul>
-          {feedbacks.map((feedback, index) => 
-            <li key={index} className="mb-2">
-              <p className="font-medium">{feedback.email}</p>
-              <p>{feedback.message}</p>
-            </li>
-          )}
-        </ul>
-      </div>
+     
+      
     </div>
   );
 };
