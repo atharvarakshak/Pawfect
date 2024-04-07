@@ -5,50 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Feedback = () => {
-  const [feedbacks, setFeedbacks] = useState([]);
-  const [formData, setFormData] = useState({
-    email: "",
-    service: "",
-    message: "",
-  });
 
-  const fetchFeedbacks = async () => {
-    try {
-      const response = await axios.get("http://localhost:3001/feedback");
-      setFeedbacks(response.data);
-    } catch (error) {
-      console.error("Error fetching feedbacks:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchFeedbacks();
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-     ...prevFormData,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:3001/feedback", formData);
-      // alert("Feedback submitted successfully!");
-      setFormData({ 
-        email: "",
-        service: "",
-        message: "",
-      });
-      fetchFeedbacks();
-      alert("congrats")
-    } catch (error) {
-      alert("An error occurred while submitting feedback");
-      console.error(error);
-    }
-  };
 
   return (
     <div className="relative top-6">
