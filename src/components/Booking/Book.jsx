@@ -19,8 +19,10 @@ const Book = () => {
      
       
       const response = await axios.post("http://localhost:3001/", {
-        email,
-        password
+        name,
+        addr,
+        phone,
+        service
       });
       
       if (response.data === "exist") {

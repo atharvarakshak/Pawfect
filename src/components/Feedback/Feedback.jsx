@@ -80,6 +80,7 @@ const Feedback = () => {
           <option value="Veterinary Assistance">Veterinary Assistance</option>
           <option value="Walking">Walking</option>
           <option value="Breeding Assistance">Breeding Assistance</option>
+<<<<<<< HEAD
         </select>
         <textarea
           name="message"
@@ -93,6 +94,11 @@ const Feedback = () => {
           Submit
         </button>
       </form>
+=======
+          </select>
+          
+          <textarea name="" id="" cols="30" rows="10" className='p-2'  placeholder='Give Us your valuable Feedback !'></textarea>
+>>>>>>> fab6ab9b004b18f3390bbb8adfdc87932b18f404
 
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Previous Feedbacks</h2>
