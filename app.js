@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import collection from "./mongo.js"
+import  {collection,feedback} from "./mongo.js"
 import cors from"cors"
 const app = express()
 app.use(express.json())
@@ -14,25 +14,29 @@ app.get("/",cors(),(req,res)=>{
 })
 
 
-app.post("/",async(req,res)=>{
-    const{email,password}=req.body
-
-    try{
-        const check=await collection.findOne({email:email})
-
-        if(check){
-            res.json("exist")
+app.post("/", async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      const user = await collection.findOne({ email: email });
+      if (user) {
+        // Compare hashed password with the entered password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (isPasswordValid) {
+          res.json("exist");
+        } else {
+           
+            res.json("invalidPassword");
         }
-        else{
-            res.json("notexist")
-        }
-
+      } else
+       {
+        res.json("notexist");
+      }
+    } catch (e) {
+      console.error(e);
+      res.json("fail");
     }
-    catch(e){
-        res.json("fail")
-    }
-
-})
+  });
 
 
 app.post("/signup",async(req,res)=>{
@@ -62,6 +66,25 @@ app.post("/signup",async(req,res)=>{
     }
 
 })
+app.post('/feedback', async (req, res) => {
+    
+    const { name, service, message } = req.body;
+    try {
+        const data1={
+            name:name,
+            service:service,
+            message:message
+
+        }
+   
+      await feedback.insertMany([data1])
+      res.json('done' );
+    } 
+    catch (error) {
+      console.error('Error submitting feedback:', error);
+      res.json({ error: 'Internal server error' });
+    }
+  });
 
 app.listen(3001,()=>{
     console.log("port connected");

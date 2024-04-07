@@ -1,16 +1,78 @@
-import React from 'react'
+import React from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+
+import { useState, useEffect } from "react";
 
 const Feedback = () => {
-  return (
-   
-    <div className='relative top-16'>
-      
-      <p className="">Tell Us what you feel</p>
+  const [feedbacks, setFeedbacks] = useState([]);
+  const [formData, setFormData] = useState({
+    email: "",
+    service: "",
+    message: "",
+  });
 
-      <form className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32" >
-           <input type="full Name" className=" p-2 rounded-lg" placeholder='Your email'/>
-           
-           <select className="p-2 rounded-lg"  >
+  const fetchFeedbacks = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/feedback");
+      setFeedbacks(response.data);
+    } catch (error) {
+      console.error("Error fetching feedbacks:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+     ...prevFormData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3001/feedback", formData);
+      // alert("Feedback submitted successfully!");
+      setFormData({ 
+        email: "",
+        service: "",
+        message: "",
+      });
+      fetchFeedbacks();
+      alert("congrats")
+    } catch (error) {
+      alert("An error occurred while submitting feedback");
+      console.error(error);
+    }
+  };
+
+  return (
+    <div className="relative top-6">
+      <p className="">Tell Us what you feel</p>
+      <form
+        className="bg-[#fccea4] flex flex-col gap-9 lg:w-[578px] lg:h-[544px] m-auto rounded-2xl p-10 mt-32"
+        onSubmit={handleSubmit}
+      >
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="p-2 rounded-lg"
+          placeholder="Your Email"
+          required
+        />
+        <select
+          name="service"
+          value={formData.service}
+          onChange={handleChange}
+          className="p-2 rounded-lg"
+          required
+        >
           <option value="">Select a service</option>
           <option value="Day Care">Day Care</option>
           <option value="Grooming">Grooming</option>
@@ -18,23 +80,33 @@ const Feedback = () => {
           <option value="Veterinary Assistance">Veterinary Assistance</option>
           <option value="Walking">Walking</option>
           <option value="Breeding Assistance">Breeding Assistance</option>
-          </select>
-          
-          <textarea name="" id="" cols="30" rows="10" placeholder='Give Us your valuable Feedback !'></textarea>
+        </select>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          className="p-2 rounded-lg"
+          placeholder="Give Us your valuable Feedback !"
+          required
+        ></textarea>
+        <button type="submit" className="p-2 rounded-lg bg-red-500 text-white font-medium">
+          Submit
+        </button>
+      </form>
 
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-4">Previous Feedbacks</h2>
+        <ul>
+          {feedbacks.map((feedback, index) => 
+            <li key={index} className="mb-2">
+              <p className="font-medium">{feedback.email}</p>
+              <p>{feedback.message}</p>
+            </li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-           <a href="#_" class="relative inline-flex items-center  text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl group">
-          <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
-          <span class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
-          </span>
-          <span class="absolute bottom-0 text-center  h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Submit</span>
-          </a>
-          </form>
-     
-   </div>
-
-  )
-}
-
-export default Feedback
+export default Feedback;

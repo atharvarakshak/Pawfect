@@ -21,7 +21,7 @@ export default function Footer() {
                            <div className="mt-3">
                             <div className="flex">
                                 <img src={dogLogo} alt="" className="h-10" />
-                                <h1 className="text-2xl font-bold mt-1">PAWSITTERS</h1>
+                                <h1 className="text-2xl font-bold mt-1">Pawfect</h1>
                             </div>
                             <p className="text-lg text-center">Scan QR For More</p>
                            </div>
