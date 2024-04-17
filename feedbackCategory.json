@@ -1,0 +1,11 @@
+[
+    {
+        "service": "grooming"
+    },
+    {
+        "service": "breeding"
+    },
+    {
+        "service": "walking"
+    }
+]

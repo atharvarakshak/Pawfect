@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Feedback = () => {
-
+    const [isLoggedIn,setIsLoggedIn] = useState(false)
 
   return (
     <div className="relative top-6">
