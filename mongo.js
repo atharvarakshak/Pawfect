@@ -4,7 +4,7 @@
 import { connect, Schema, model } from "mongoose";
 
 
-connect("mongodb+srv://:@cluster0.dlwp2a9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+connect("mongodb+srv://atharvarakshak23:m094NEaj4LJ6kVcf@cluster0.dlwp2a9.mongodb.net/pawfect?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
     console.log("mongodb connected");
 })
@@ -41,7 +41,7 @@ const feedbackSchema = new Schema({
 
 
 
-const collection = model("addusers",newSchema)
+const collection = model("signups",newSchema)
 const feedback = model("feeds",feedbackSchema)
 
 export  {collection,feedback}

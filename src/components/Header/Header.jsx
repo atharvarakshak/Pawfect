@@ -82,13 +82,13 @@ const Nav = () => {
           <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
           {!isLoggedIn ? (
           <NavLink to="/signup">
-            <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
-              SignUp
+            <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
+              <p>Signup</p>
             </button>
           </NavLink>
           ) : (
             <button
-              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static"
+              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
               onClick={() => setIsLoggedIn(false)}
             >
               Logout

@@ -32,8 +32,8 @@ export default function Darkmode() {
     return (
         <div className="border border-slate-900 rounded-3xl shadow-lg shadow-orange-900 dark:shadow-orange-300">
             <label className="theme-switch ">
-        <input type="checkbox" className="theme-switch__checkbox"  onClick={handleThemeSwitch}/>
-        <div className="theme-switch__container">
+        <input type="checkbox" className="theme-switch__checkbox w-4 md:w-full"  onClick={handleThemeSwitch}/>
+        <div className="theme-switch__container ">
           <div className="theme-switch__clouds"></div>
           <div className="theme-switch__stars-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
