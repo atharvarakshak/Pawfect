@@ -4,29 +4,44 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const history = useNavigate();
+  const [credentials, setCredentials] = useState({name:"",email:"",password:""});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+ 
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/", {
-        email,
-        password
+      const response = await fetch("http://localhost:5000/api/login", {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+
+        },
+        body:JSON.stringify({email:credentials.email,password:credentials.password})
       });
-      if (response.data === "exist") {
-        history("/", { state: { id: email } });
-      } else if (response.data === "notexist") {
-        alert("User has not signed up");  
+      const json = await response.json();
+      console.log(json);
+
+      if(!json.success){
+          alert("enter valid credentials");
       }
-      else{
-        alert("Invalid password");
+      if(json.success){
+        localStorage.setItem("authToken",json.authToken)
+        console.log(localStorage.getItem("authToken"));
+        history("/")
       }
+
+      
     } catch (error) {
       alert("Wrong details");
       console.error(error);
     }
   };
+
+  const onChange = (e)=>{
+    setCredentials({...credentials,[e.target.name]:e.target.value})
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -44,8 +59,8 @@ const Login = () => {
                 type="email"
                 autoComplete="email"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={credentials.email}
+                onChange={onChange}
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
@@ -58,8 +73,9 @@ const Login = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={credentials.password}
+                onChange={onChange}
+               
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
@@ -71,7 +87,7 @@ const Login = () => {
               <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">Remember me</label>
             </div>
             <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-400">Forgot your password?</a>
             </div>
           </div>
           <div>

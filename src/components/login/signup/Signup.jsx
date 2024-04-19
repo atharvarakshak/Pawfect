@@ -4,27 +4,35 @@ import {Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const history = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [credentials, setCredentials] = useState({name:"",email:"",password:""});
+
 
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/signup", {
-        email,
-        password
+      const response = await fetch("http://localhost:5000/api/createuser", {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+
+        },
+        body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password})
       });
-      if (response.data === "exist") {
-        alert("User already exists");
-      } 
-      else if (response.data === "notexist") {
-        history("/", { state: { id: email } });
+      const json = await response.json();
+      console.log(json);
+
+      if(!json.success){
+          alert("enter valid credentials");
       }
     } catch (error) {
       alert("Wrong details");
       console.error(error);
     }
   };
+
+  const onChange = (e)=>{
+    setCredentials({...credentials,[e.target.name]:e.target.value})
+  }
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative top-16">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -34,13 +42,13 @@ const Signup = () => {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={submit}>
-         
+            {/* Name input */}
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                 Username
               </label>
               <div className="mt-1">
-                <input id="username" name="username" type="text" autoComplete="username" required className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                <input id="username" name="name" type="text" value={credentials.name} onChange={onChange} autoComplete="username" required className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
               </div>
             </div>
             {/* Email input */}
@@ -49,7 +57,7 @@ const Signup = () => {
                 Email address
               </label>
               <div className="mt-1">
-                <input id="email" name="email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                <input id="email" name="email" value={credentials.email} onChange={onChange} type="email" autoComplete="email" required className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
               </div>
             </div>
             {/* Password input */}
@@ -58,7 +66,7 @@ const Signup = () => {
                 Password
               </label>
               <div className="mt-1">
-                <input id="password" name="password" type="password" autoComplete="new-password" required value={password} onChange={(e) => setPassword(e.target.value)} className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                <input id="password" name="password" type="password" autoComplete="new-password" required value={credentials.password} onChange={onChange} className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
               </div>
             </div>
             {/* Sign up button */}

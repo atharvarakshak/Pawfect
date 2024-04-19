@@ -9,7 +9,16 @@ const mongoDB = async()=>{
         console.log("mongodb connected");
 
         const fetched_data = await mongoose.connection.db.collection("feedbacks");
-        // console.log(await fetched_data.find({}).toArray()); 
+        await fetched_data.find({}).toArray()
+        .then( (data)=>{
+            // const foodCategory = 
+            if(!data){console.log("error loading");}
+            else{
+                global.feedbacks = data;
+                // console.log(global.feedbacks);
+            }
+        })
+        
     })
     .catch(()=>{
         console.log('failed');

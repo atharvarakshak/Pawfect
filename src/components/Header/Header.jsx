@@ -34,7 +34,7 @@ const Nav = () => {
 
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "CART", link: "/cart" },
+    // { name: "CART", link: "/cart" },
     { name: "HELP", link: "/help" },
     { name: "ABOUT", link: "/about" },
     { name: "FEEDBACK", link: "/feedback" },
@@ -83,16 +83,26 @@ const Nav = () => {
           {!isLoggedIn ? (
           <NavLink to="/signup">
             <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
-              <p>Signup</p>
+              Signup
             </button>
           </NavLink>
           ) : (
-            <button
+            
+            <div>
+              <button
               className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
               onClick={() => setIsLoggedIn(false)}
             >
               Logout
             </button>
+            <button
+              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Cart
+            </button>
+            </div>
+            
           )}
 
           </button>
