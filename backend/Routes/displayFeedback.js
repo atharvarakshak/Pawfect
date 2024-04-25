@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post('/displayfeedback',(req,res)=>{
     try{
-        console.log(global.feedbacks);
+        // console.log(global.feedbacks);
         res.send([global.feedbacks])
 
     }

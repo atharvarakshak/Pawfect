@@ -1,36 +1,40 @@
-import React from 'react'
+import React from "react";
 
-import Darkmode from '../DarkMood/Darkmode';
+import Darkmode from "../DarkMood/Darkmode";
 
-import { useState } from 'react';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon,SunIcon } from '@heroicons/react/24/solid'
+import { useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import {
+  BookOpenIcon,
+  Bars3BottomRightIcon,
+  XMarkIcon,
+  SunIcon,
+} from "@heroicons/react/24/solid";
 // import {Link} from react-router-dom
 
-import logo from '../../assets/logoDog.svg'
-import { NavLink } from 'react-router-dom';
+import logo from "../../assets/logoDog.svg";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
-  const [isLoggedIn,setIsLoggedIn]=useState(false);
+  // const [isLoggedIn,setIsLoggedIn]=useState(false);
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login', {
+      const response = await axios.post("http://localhost:3001/login", {
         email,
         password,
       });
-      if (response.data === 'Logged in successfully.') {
+      if (response.data === "Logged in successfully.") {
         setIsLoggedIn(true);
-        history('/', { state: { id: email } });
-      } else if (response.data === 'User not found.') {
-        alert('User not found. Please sign up.');
+        history("/", { state: { id: email } });
+      } else if (response.data === "User not found.") {
+        alert("User not found. Please sign up.");
       }
     } catch (error) {
-      alert('Wrong details');
+      alert("Wrong details");
       console.error(error);
     }
   };
-  
 
   let Links = [
     { name: "HOME", link: "/" },
@@ -42,14 +46,14 @@ const Nav = () => {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="navbar shadow-md w-full  fixed z-50 top-0 left-0  "> 
+    <div className="navbar shadow-md w-full  fixed z-50 top-0 left-0  ">
       <div className="md:flex items-center justify-between bg-[#FFBB7A] dark:bg-slate-900 py-4 md:px-10 px-7 ">
         {/* Logo section */}
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
           <a href="/">
-            <img className='' src={logo} alt="" />
+            <img className="" src={logo} alt="" />
           </a>
-          <span className="text-white ">    Pawfect</span>
+          <span className="text-white "> Pawfect</span>
         </div>
         {/* Menu icon */}
         <div
@@ -76,44 +80,41 @@ const Nav = () => {
               </a>
             </li>
           ))}
-         
-         <div className="flex md:flex-row flex-col gap-3">
-         <NavLink to="/signup">
-          <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold px-3 py-2 rounded duration-300 md:static">
-          {!isLoggedIn ? (
-          <NavLink to="/signup">
-            <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
-              Signup
-            </button>
-          </NavLink>
+
+          {localStorage.getItem("authToken") ? (
+            <NavLink to="/signup">
+              <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
+                Signup
+              </button>
+            </NavLink>
           ) : (
-            
-            <div>
-              <button
-              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
-              onClick={() => setIsLoggedIn(false)}
-            >
-              Logout
-            </button>
-            <button
-              className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
-              onClick={() => setIsLoggedIn(false)}
-            >
-              Cart
-            </button>
-            </div>
-            
+            <>
+              <NavLink to="/signup">
+                <button
+                  className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
+         
+                >
+                  Logout
+                </button>
+              </NavLink>
+              <NavLink to="/">
+                <button
+                  className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
+                 
+                >
+                  Cart
+                </button>
+              </NavLink>
+            </>
           )}
 
-          </button>
-          </NavLink>
-          <div className='ml-2'>
-            <Darkmode/>
+          <div className="flex md:flex-row flex-col gap-3">
+            
+            <div className="ml-2">
+              <Darkmode />
+            </div>
           </div>
-         </div>
-
         </ul>
-        
       </div>
     </div>
   );
