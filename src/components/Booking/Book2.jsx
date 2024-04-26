@@ -48,6 +48,9 @@ const Book = () => {
     setShowPaymentOverlay(false); // Close the overlay after canceling
   };
 
+  const handleAddToCart =()=>{
+    alert("clicked")
+  }
 
   return (
     
@@ -80,9 +83,9 @@ const Book = () => {
       </div>
       </div>
       
-      <form className="form bg-[#fccea4] flex flex-col  m-auto  mt-32   dark:bg-slate-600 flex flex-col gap-9 lg:w-[578px] lg:m-auto rounded-2xl p-10 mx-3 border border-3 dark:border-slate-500" onSubmit={submit}>
+      <form onClick={handleAddToCart} className="form bg-[#fccea4]  m-auto  mt-32   dark:bg-slate-600 flex flex-col gap-9 lg:w-[578px] lg:m-auto rounded-2xl p-10 mx-3 border border-3 dark:border-slate-500" onSubmit={submit}>
         <p className="text-center font-bold text-3xl ">Book an appointment !</p>
-        <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/>
+        {/* <input type="text" className="p-2 rounded-lg" placeholder='Full Name'/> */}
         <input type="text" className="p-2 rounded-lg" placeholder='Address'/>
         <input type="text" className="p-2 rounded-lg" placeholder='Phone No.'/>
         <p className="text-center font-bold md:text-xl text-md ">Select Services </p>
@@ -104,7 +107,7 @@ const Book = () => {
           <p className="  max-w-[126px]  px-4 py-2 font-medium group bg-black  rounded-lg text-white">Rs: {totalCost}</p>
         </div>
         <button type="submit" className="relative inline-flex items-center text-center py-5 overflow-hidden font-medium transition-all bg-red-500 rounded-xl  dark:bg-red-950 duration-700">
-          <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white text-xl">Book Service</span>
+          <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white text-xl">Add to Cart</span>
         </button>
       </form>    
     </div>

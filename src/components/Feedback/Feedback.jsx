@@ -113,7 +113,7 @@ const Feedback = () => {
         <h2 className="font-bold text-xl">Customer Feedbacks</h2>
 
         <div className="border-2 border-white max-h-100 overflow-y-auto">
-          {feedbackDisplay.length !== 0 ? (
+          { feedbackDisplay.length !== 0? (
             feedbackDisplay.map((data) => {
               return (
                 <div className="flex-col ">

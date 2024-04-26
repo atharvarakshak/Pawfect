@@ -21,8 +21,14 @@ const Signup = () => {
       const json = await response.json();
       console.log(json);
 
-      if(!json.success){
-          alert("enter valid credentials");
+      if (json.success) {
+        //save the auth toke to local storage and redirect
+        localStorage.setItem('token', json.authToken)
+        navigate("/login")
+  
+      }
+      else {
+        alert("Enter Valid Credentials")
       }
     } catch (error) {
       alert("Wrong details");

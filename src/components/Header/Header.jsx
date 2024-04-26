@@ -13,10 +13,11 @@ import {
 // import {Link} from react-router-dom
 
 import logo from "../../assets/logoDog.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 
 const Nav = () => {
-  // const [isLoggedIn,setIsLoggedIn]=useState(false);
+
+  const navigate = useNavigate();
   const submit = async (e) => {
     e.preventDefault();
     try {
@@ -44,6 +45,12 @@ const Nav = () => {
     { name: "FEEDBACK", link: "/feedback" },
   ];
   let [open, setOpen] = useState(false);
+
+
+    const handleLogout = (e)=>{
+      localStorage.removeItem("authToken");
+      navigate("/login")
+    }
 
   return (
     <div className="navbar shadow-md w-full  fixed z-50 top-0 left-0  ">
@@ -82,34 +89,41 @@ const Nav = () => {
           ))}
 
           {localStorage.getItem("authToken") ? (
-            <NavLink to="/signup">
-              <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
-                Signup
-              </button>
-            </NavLink>
-          ) : (
             <>
-              <NavLink to="/signup">
-                <button
-                  className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
-         
-                >
-                  Logout
+              <NavLink to="/">
+                <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static ">
+                  My Orders
                 </button>
               </NavLink>
-              <NavLink to="/">
-                <button
-                  className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static "
-                 
-                >
-                  Cart
+            </>
+          ) : (
+            ""
+          )}
+
+          {!localStorage.getItem("authToken") ? (
+            <>
+              <NavLink to="/signup">
+                <button className="btn  bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold   rounded duration-300 md:static  ">
+                  Signup
+                </button>
+              </NavLink>
+            </>
+          ) : (
+            <>
+               <NavLink to="/">
+                <button className="btn bg-[#B95A00] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static ">
+                  MyCart
+                </button>
+                </NavLink>
+              <NavLink to="/login">
+                <button className="btn bg-[#f41818] hover:bg-[#ea9f59] text-white md:ml-8 font-semibold rounded  md:static " onClick={handleLogout}>
+                  Logout
                 </button>
               </NavLink>
             </>
           )}
 
           <div className="flex md:flex-row flex-col gap-3">
-            
             <div className="ml-2">
               <Darkmode />
             </div>

@@ -9,7 +9,7 @@ const jwtSecret = "MyNamensusd$jasjskjhas&hasajslkkas"
 
 router.post('/createuser', [
     body('email').isEmail(),
-    body('password','Incorrect Password').isLength({ min: 5 }),
+    body('password','Incorrect Password').isLength({ min: 3 }),
     body('name').isLength({ min: 3 })
 ],async (req,res)=>{
 

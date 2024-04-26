@@ -19,11 +19,14 @@ import Login from './components/login/signup/Login.jsx'
 import Feedback from './components/Feedback/Feedback.jsx'
 
 
-
+import CartProvider from './components/ContextReducer.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    <CartProvider>
+
     <Route path='/' element={<Layout />} >
+
      <Route path='' element={<Home/>} />
      <Route path='about' element={<About/>} />
      <Route path='help' element={<Help/>} />
@@ -38,15 +41,17 @@ const router = createBrowserRouter(
      <Route path='login' element={<Login/>} />
      <Route path='feedback' element={<Feedback/>} />
     
-    
-    
     </Route>
+    
+    
+    </CartProvider>
   )
 )
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+
     <RouterProvider router={router}/>
   </React.StrictMode>,
 )
